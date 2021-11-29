@@ -31,13 +31,13 @@ namespace FA20211129
         {
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tbKereses = new System.Windows.Forms.TextBox();
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.termek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bevetel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,31 +55,31 @@ namespace FA20211129
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 49);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Új termék típus rögzítése";
+            this.button1.Text = "Új terméktípus rögzítése";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // tbKereses
             // 
-            this.textBox1.Location = new System.Drawing.Point(238, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 20);
-            this.textBox1.TabIndex = 4;
+            this.tbKereses.Location = new System.Drawing.Point(238, 24);
+            this.tbKereses.Name = "tbKereses";
+            this.tbKereses.Size = new System.Drawing.Size(172, 20);
+            this.tbKereses.TabIndex = 4;
+            this.tbKereses.TextChanged += new System.EventHandler(this.tbKereses_TextChanged);
             // 
-            // dataGridView1
+            // dgv
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.datum,
             this.termek,
             this.bevetel});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 57);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(477, 239);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgv.Location = new System.Drawing.Point(12, 57);
+            this.dgv.Name = "dgv";
+            this.dgv.RowHeadersVisible = false;
+            this.dgv.Size = new System.Drawing.Size(477, 239);
+            this.dgv.TabIndex = 5;
             // 
             // datum
             // 
@@ -111,13 +111,13 @@ namespace FA20211129
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 366);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.tbKereses);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "FrmMain";
             this.Text = "Zöldseg/gyümölcs";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,8 +127,8 @@ namespace FA20211129
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox tbKereses;
+        private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn datum;
         private System.Windows.Forms.DataGridViewTextBoxColumn termek;
         private System.Windows.Forms.DataGridViewTextBoxColumn bevetel;

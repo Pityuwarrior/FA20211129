@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace FA20211129
@@ -17,13 +11,8 @@ namespace FA20211129
         {
             ConnectionString =
                 "Server = (localdb)\\MSSQLLocalDB;" +
-                "AttachDBFileName = |DataDirectory|\\zoldseges.mdf";
+                "Database = zoldseges";
             InitializeComponent();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -31,20 +20,34 @@ namespace FA20211129
         private void FillDGV() 
         {
             dgv.Rows.Clear();
-            using (var c = new SqlConnection((ConnectionString))
+            using (var c = new SqlConnection(ConnectionString))
             {
                 c.Open();
-                var r = new SqlCommand(
-                    "SELECT datum, nev, egysegAr * mennyiseg"+
-                    "FROM zoldseg"+
-                    "INNER JOIN eladas ON id = zoldseg"+
-                    $"WHERE nev LIKE '{tbKereses.Text}%';",c)
+                var command = new SqlCommand(
+                    "SELECT datum, nev, egysegAr * mennyiseg" +
+                    "FROM zoldseg" +
+                    "INNER JOIN eladas ON id = zoldseg" +
+                    $"WHERE nev LIKE '{tbKereses.Text}%';", c);
+                    var r = command.ExecuteReader();
+                while (r.Read())
+                {
+                    dgv.Rows.Add(
+                    r.GetDateTime(0).ToString("yyyy-MM-dd"),
+                    r[1],
+                    r[2] + " Ft");
+
+                }
             }
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             FrmUjTermek f2 = new FrmUjTermek();
             f2.ShowDialog();
         }
+
+        private void tbKereses_TextChanged(object sender, EventArgs e) 
+            => FillDGV();
     }
+   
 }
